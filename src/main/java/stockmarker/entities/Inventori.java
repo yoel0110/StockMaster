@@ -47,6 +47,7 @@ public  class Inventori {
         for (int i = 0; i < _products.length; i++ ) {
             if(_products[i] != null){
                 var product = _products[i];
+                IO.println("----------------------------------");
                 IO.println(
                         "ProductId: %d\nProductName: %s\nProductPrice: %.2f \nStock: %d".formatted(
                                         product.GetProductId(),
@@ -55,6 +56,7 @@ public  class Inventori {
                                         product.GetStock()
                                 )
                 );
+                IO.println("----------------------------------");
             }
         }
     }
@@ -94,7 +96,7 @@ public  class Inventori {
                     .formatted(product.GetStock()));
             int stock = sc.nextInt();
             if (stock != 0)
-                product.UpdateStock((stock + product.GetStock()));
+                product.UpdateStock(stock);
 
         }
     }
