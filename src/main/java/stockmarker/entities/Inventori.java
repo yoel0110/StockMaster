@@ -35,7 +35,7 @@ public  class Inventori {
         if (_slots == 0)
             return new  PairResult(null, 0);
         for (int i = 0; i < _products.length; i++){
-            if(_products[i].GetName().equals(name)){
+            if(_products[i] != null &&  _products[i].GetName().equals(name)){
                 return new PairResult(_products[i], i);
             }
         }
