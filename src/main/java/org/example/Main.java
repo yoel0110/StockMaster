@@ -1,17 +1,59 @@
 package org.example;
 
+
+import stockmarker.entities.Inventori;
+
+import java.math.BigDecimal;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+    public static boolean isClose = false;
+    public static Inventori _inventory;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+    static void main() {
+       _inventory = new Inventori();
+        while (isClose == false){
+            DisplayMenu();
+        }
+    }
+
+    static void DisplayMenu(){
+        IO.println("------------------[ StockMaster ]-----------------------");
+        IO.println("1.Listar productos");
+        IO.println("2.Regristrar un producto");
+        IO.println("3.Actualizar un producto");
+        IO.println("4.Eliminar un producto");
+        IO.println("0. Salir");
+        InteractionMenu();
+    }
+
+    static void InteractionMenu(){
+        Scanner scanner = new Scanner(System.in);
+        IO.println("Seleccione una opción: ");
+        var opcion = scanner.nextInt();
+
+        switch (opcion){
+            case 1:
+                _inventory.ListProducts();
+                break;
+            case 2:
+                _inventory.AddProduct();
+                break;
+            case 3:
+                IO.println("Inserte el id del producto: ");
+                _inventory.UpdateProduct(scanner.nextInt());
+                break;
+            case 4:
+                IO.println("Inserte el id del producto: ");
+                _inventory.DeleteProduct(scanner.nextInt());
+                break;
+            case 5:
+                isClose = true;
+                System.exit(0);
+                break;
+
         }
     }
 }
