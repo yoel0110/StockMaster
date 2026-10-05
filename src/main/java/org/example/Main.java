@@ -49,7 +49,7 @@ public class Main {
                 IO.println("Inserte el id del producto: ");
                 _inventory.DeleteProduct(scanner.nextInt());
                 break;
-            case 5:
+            case 0:
                 isClose = true;
                 System.exit(0);
                 break;
